@@ -1,5 +1,10 @@
 #include "vector_slot.h"
 
+VectorSlot::VectorSlot(size_t size) {
+    for (size_t i = 0; i < size; i++)
+        this->vector.push_back(true);
+}
+
 VectorSlot::VectorSlot(std::vector<bool>& v) {
     this->vector = v; //COPIES
 }

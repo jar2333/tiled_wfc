@@ -1,48 +1,31 @@
-#include "wfc_grid.h"
-#include "vector_slot.h"
+// #include "square_grid.h"
 
-const int N = 5;
-const int M = 5;
+// SquareGrid::SquareGrid(size_t slot_size) {
+//     for (size_t i = 0; i < N * M; i++) 
+//         grid[i] = new VectorSlot(slot_size);
+// }
 
-// template <int N, int M>
-class SquareGrid : public WFCGrid {
-    VectorSlot *grid[N * M];
+// SquareGrid::~SquareGrid() {
+//     for (size_t i = 0; i < N * M; i++) 
+//         delete grid[i];
+// }
 
-    public:
-        SquareGrid(std::vector<bool> **vectors) {
-            for (size_t i = 0; i < N * M; i++) {
-                for (size_t j = 0 ; j < M; j++) {
-                    grid[N * i + j] = new VectorSlot(vectors[i][j]);
-                }
-            }
-        }
+// void SquareGrid::collapse(WFCHeuristic& h) {
 
-        ~SquareGrid() {
-            for (size_t i = 0; i < N * M; i++) 
-                delete grid[i];
-        }
+// }
 
-        Slot *getValue(int key) {
-            return grid[key];
-        }
+// void SquareGrid::collapse(int key, CollapseBehavior& cb) {
 
-        int *getNeighbors(int key) {
-            //front, right, back, left
-            int *neighbor_keys = new int[4];
-            
-            // if (key-1 < 0)
+// }
 
-            
-            return neighbor_keys;
-        }
+// bool SquareGrid::constrain(int current, int neighbor) {
+//     return true;
+// }
 
-        int *getKeys() {
-            int *keys = new int[N * M];
-            for (size_t i = 0; i < N * M; i++) 
-                keys[i] = (int) i;
-            return keys;
-        }
+// bool SquareGrid::isCollapsed() {
+//     return true;
+// }
 
-        Slot **getValues();
-
-};
+// bool SquareGrid::isContradiction() {
+//     return true;
+// }
