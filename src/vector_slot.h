@@ -5,6 +5,7 @@
 
 class VectorSlot : public Slot {
 
+    size_t ones_count;
     std::vector<bool> vector;
 
     public:
