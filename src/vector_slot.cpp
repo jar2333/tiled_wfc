@@ -5,10 +5,6 @@ VectorSlot::VectorSlot(size_t size) {
         this->vector.push_back(true);
 }
 
-VectorSlot::VectorSlot(std::vector<bool>& v) {
-    this->vector = v; //COPIES
-}
-
 void VectorSlot::set(size_t pos, bool val) {
     vector[pos] = val;
 }
