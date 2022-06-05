@@ -15,5 +15,6 @@ class VectorSlot : public Slot {
         bool get(size_t pos) override;
         bool any() override;
         bool none() override;
+        size_t ones() override;
 
 };

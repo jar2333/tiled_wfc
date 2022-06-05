@@ -5,7 +5,7 @@
 
 template <size_t N, size_t M>
 class SquareGrid : public WFCGrid {
-    VectorSlot *grid[N * M];
+    shared_ptr<VectorSlot> grid[N * M];
 
     public:
         SquareGrid(size_t slot_size);
