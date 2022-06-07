@@ -1,4 +1,4 @@
-#include "prototype.h"
+#include "Prototype.h"
 
 Prototype::Prototype(std::string mesh_path, int rotation, std::string *h_sockets, std::string *v_sockets)
 {

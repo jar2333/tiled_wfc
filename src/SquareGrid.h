@@ -10,7 +10,7 @@ class SquareGrid : public IWFCGrid {
     public:
         SquareGrid(size_t N, size_t M, size_t slot_size);
         ~SquareGrid();
-        void collapse(IWFCHeuristic& h) override;
+        void collapse(IWFCHeuristic& h, ICollapseBehavior& cb) override;
         void collapse(int key, ICollapseBehavior& cb) override;
         bool constrain(int current, int neighbor) override;
         bool isCollapsed() override;
