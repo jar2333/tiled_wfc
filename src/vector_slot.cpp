@@ -28,7 +28,3 @@ bool VectorSlot::any() {
 bool VectorSlot::none() {
     return !any();
 }
-
-size_t VectorSlot::ones() {
-    return this->ones_count;
-}

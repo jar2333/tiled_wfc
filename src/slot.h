@@ -6,5 +6,4 @@ class Slot {
     virtual bool get(size_t pos) = 0;
     virtual bool any() = 0;
     virtual bool none() = 0;
-    virtual size_t ones() = 0;
 };
