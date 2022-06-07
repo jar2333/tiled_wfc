@@ -1,6 +1,6 @@
 #pragma once
 
-#include "slot.h"
+#include "IGridSlot.h"
 #include <vector>
 
 class VectorSlot : public IGridSlot {

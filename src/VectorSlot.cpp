@@ -1,4 +1,4 @@
-#include "vector_slot.h"
+#include "VectorSlot.h"
 
 VectorSlot::VectorSlot(size_t size) {
     this->vector.reserve(size);

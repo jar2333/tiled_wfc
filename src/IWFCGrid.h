@@ -1,6 +1,6 @@
 #pragma once 
 
-#include "grid.h"
+#include "IGrid.h"
 
 class IGridSlot;
 class ICollapseBehavior;

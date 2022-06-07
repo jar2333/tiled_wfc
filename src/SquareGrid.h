@@ -1,7 +1,7 @@
 #pragma once
 
-#include "wfc_grid.h"
-#include "vector_slot.h"
+#include "IWFCGrid.h"
+#include "VectorSlot.h"
 
 class SquareGrid : public IWFCGrid {
     size_t N, M;

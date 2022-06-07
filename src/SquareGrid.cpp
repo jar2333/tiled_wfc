@@ -1,4 +1,4 @@
-// #include "square_grid.h"
+// #include "square_IGrid.h"
 
 // SquareGrid::SquareGrid(size_t slot_size) {
 //     for (size_t i = 0; i < N * M; i++) 
