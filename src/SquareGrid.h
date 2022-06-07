@@ -6,6 +6,7 @@
 class SquareGrid : public IWFCGrid {
     size_t N, M;
     std::vector<std::shared_ptr<VectorSlot>> grid;
+    // std::vector<VectorNeighborSet> neighbors;
 
     public:
         SquareGrid(size_t N, size_t M, size_t slot_size);
