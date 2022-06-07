@@ -3,9 +3,8 @@
 #include "wfc_grid.h"
 #include "vector_slot.h"
 
-template <size_t N, size_t M>
 class SquareGrid : public IWFCGrid {
-    VectorSlot *grid[N * M];
+    std::vector<std::shared_ptr<VectorSlot>> grid;
 
     public:
         SquareGrid(size_t slot_size);
@@ -17,7 +16,6 @@ class SquareGrid : public IWFCGrid {
         bool isContradiction() override;
         std::vector<int> getNeighbors() override;
         std::shared_ptr<ISlot> getValue(int key) override;
-        std::vector<std::shared_ptr<ISlot>> getValues() override;
         std::vector<int> getKeys() override;
 
 };
