@@ -1,8 +1,8 @@
 #pragma once 
 
-class ISlot;
+class IGridSlot;
 
 class ICollapseBehavior {
     public:
-        virtual void collapse(ISlot& slot) = 0;
+        virtual void collapse(IGridSlot& slot) = 0;
 };
