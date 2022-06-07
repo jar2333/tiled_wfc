@@ -2,12 +2,14 @@
 
 #include "IWFCGrid.h"
 #include "VectorSlot.h"
-#include "VectorNeighborSet.h"
+#include "VectorNeighborMap.h"
+
+#include <map>
 
 class SquareGrid : public IWFCGrid {
     size_t N, M;
     std::vector<std::shared_ptr<VectorSlot>> grid;
-    std::vector<VectorNeighborSet[4]> neighbors;
+    std::vector<std::map<int, VectorNeighborMap>> neighbors;
 
     public:
         SquareGrid(size_t N, size_t M, size_t slot_size);

@@ -2,6 +2,7 @@
 #include "IWFCHeuristic.h"
 #include "ICollapseBehavior.h"
 
+//modify constructor to create all neighbor lists beforehand?
 SquareGrid::SquareGrid(size_t N, size_t M, size_t slot_size) {
     this->N = N;
     this->M = M;
@@ -47,6 +48,7 @@ bool SquareGrid::isContradiction() {
     return false;
 }
 
+//lazy evaluation with neighbors vector?
 std::vector<int> SquareGrid::getNeighbors(int key) {
     std::vector<int> neighbor_keys;
     neighbor_keys.reserve(4);
