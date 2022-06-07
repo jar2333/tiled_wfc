@@ -1,4 +1,5 @@
 #include "VectorNeighborSet.h"
+#include "IGridSlot.h"
 
 VectorNeighborSet::VectorNeighborSet(size_t size) {
     this->vector.reserve(size);
@@ -16,5 +17,10 @@ bool VectorNeighborSet::get(size_t pos) {
 
 bool VectorNeighborSet::constrainNeighbor(IGridSlot& neighbor_grid) {
 
-    return true;
+    for (size_t i = 0; i < vector.size(); i++) {
+        if (!get(i) && neighbor_grid.get(i))
+            neighbor_grid.set(i, false);
+    }
+
+    return neighbor_grid.hasNone(); //return if, at the end, made a contradiction.
 }
