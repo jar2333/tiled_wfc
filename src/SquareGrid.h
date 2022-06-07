@@ -15,7 +15,7 @@ class SquareGrid : public IWFCGrid {
         bool constrain(int current, int neighbor) override;
         bool isCollapsed() override;
         bool isContradiction() override;
-        std::vector<int> getNeighbors() override;
+        std::vector<int> getNeighbors(int key) override;
         std::shared_ptr<IGridSlot> getValue(int key) override;
         std::vector<int> getKeys() override;
 

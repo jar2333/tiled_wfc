@@ -29,6 +29,7 @@ bool VectorSlot::hasNone() {
 bool VectorSlot::hasOne() {
     return ones_count == 1;
 }
+
 size_t VectorSlot::getOnesCount() {
     return ones_count;
 }
