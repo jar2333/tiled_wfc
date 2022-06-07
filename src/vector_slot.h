@@ -3,7 +3,7 @@
 #include "slot.h"
 #include <vector>
 
-class VectorSlot : public Slot {
+class VectorSlot : public ISlot {
 
     size_t ones_count;
     std::vector<bool> vector;

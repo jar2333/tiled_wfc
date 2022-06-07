@@ -4,7 +4,7 @@
 #include <memory>
 
 template <class T>
-class Grid {
+class IGrid {
   public:
     virtual std::vector<int> getNeighbors() = 0;
     virtual std::shared_ptr<T> getValue(int key) = 0;

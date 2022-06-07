@@ -2,14 +2,14 @@
 
 #include "grid.h"
 
-class Slot;
-class CollapseBehavior;
-class WFCHeuristic;
+class ISlot;
+class ICollapseBehavior;
+class IWFCHeuristic;
 
-class WFCGrid : public Grid<Slot> {
+class IWFCGrid : public IGrid<ISlot> {
     public:
-        virtual void collapse(WFCHeuristic& h) = 0;
-        virtual void collapse(int key, CollapseBehavior& cb) = 0;
+        virtual void collapse(IWFCHeuristic& h) = 0;
+        virtual void collapse(int key, ICollapseBehavior& cb) = 0;
         virtual bool constrain(int current, int neighbor) = 0;
         virtual bool isCollapsed() = 0;
         virtual bool isContradiction() = 0;

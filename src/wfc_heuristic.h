@@ -1,8 +1,8 @@
 #pragma once 
 
-class WFCGrid;
+class IWFCGrid;
 
-class WFCHeuristic {
+class IWFCHeuristic {
     public:
-        virtual int getNext(WFCGrid& grid) = 0;
+        virtual int getNext(IWFCGrid& grid) = 0;
 };

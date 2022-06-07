@@ -6,13 +6,13 @@
 
 class WFCSolver {
 
-    WFCGrid& grid;
-    WFCHeuristic& heuristic;
+    IWFCGrid& grid;
+    IWFCHeuristic& heuristic;
 
     public:
-        WFCSolver(WFCGrid& grid, WFCHeuristic& heuristic) : grid(grid), heuristic(heuristic) {}
+        WFCSolver(IWFCGrid& grid, IWFCHeuristic& heuristic) : grid(grid), heuristic(heuristic) {}
 
-        virtual WFCGrid& run() = 0;
+        virtual IWFCGrid& run() = 0;
 
     protected:
         virtual void iterate() = 0;
