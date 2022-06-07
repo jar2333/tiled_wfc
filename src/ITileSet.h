@@ -4,6 +4,6 @@
 template<typename KeyT>
 class ITileSet {
   public:
-    virtual void set(KeyT pos, bool val) = 0;
-    virtual bool get(KeyT pos) = 0;
+    virtual void set(KeyT key, bool val) = 0;
+    virtual bool get(KeyT key) = 0;
 };
