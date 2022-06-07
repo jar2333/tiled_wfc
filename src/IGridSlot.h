@@ -2,7 +2,7 @@
 
 #include "ITileSet.h"
 
-class IGridSlot : public ITileSet<size_t> {
+class IGridSlot : ITileSet<size_t> {
   public:
     virtual bool hasNone() = 0;
     virtual bool hasOne() = 0;
