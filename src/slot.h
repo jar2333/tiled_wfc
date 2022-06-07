@@ -4,7 +4,7 @@
 
 class IGridSlot : ITileSet<size_t> {
   public:
-    virtual bool any() = 0;
-    virtual bool none() = 0;
-    virtual size_t ones() = 0;
+    virtual bool hasNone() = 0;
+    virtual bool hasOne() = 0;
+    virtual size_t getOnesCount() = 0;
 };

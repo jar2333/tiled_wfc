@@ -1,6 +1,7 @@
 #pragma once
 
-template<class T>
+//needs an iterator
+template<typename T>
 class ITileSet {
   public:
     virtual void set(T pos, bool val) = 0;

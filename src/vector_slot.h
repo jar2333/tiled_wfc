@@ -3,7 +3,7 @@
 #include "slot.h"
 #include <vector>
 
-class VectorSlot : public ISlot {
+class VectorSlot : public IGridSlot {
 
     size_t ones_count;
     std::vector<bool> vector;
@@ -13,8 +13,8 @@ class VectorSlot : public ISlot {
         VectorSlot(size_t size);
         void set(size_t pos, bool val) override;
         bool get(size_t pos) override;
-        bool any() override;
-        bool none() override;
-        size_t ones() override;
+        bool hasNone() override;
+        bool hasOne() override;
+        size_t getOnesCount() override;
 
 };

@@ -6,5 +6,5 @@ class IGridSlot;
 
 class INeighborSet : ITileSet<size_t> {
   public:
-    virtual bool constrain(IGridSlot& slot) = 0;
+    virtual bool constrainNeighbor(IGridSlot& neighbor_slot) = 0;
 };
