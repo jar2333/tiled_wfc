@@ -2,11 +2,11 @@
 
 #include "IGrid.h"
 
-class IGridSlot;
+class IGridSuperposition;
 class ICollapseBehavior;
 class IWFCHeuristic;
 
-class IWFCGrid : public IGrid<IGridSlot> {
+class IWFCGrid : public IGrid<IGridSuperposition> {
     public:
         virtual void collapse(IWFCHeuristic& h, ICollapseBehavior& cb) = 0;
         virtual void collapse(int key, ICollapseBehavior& cb) = 0;

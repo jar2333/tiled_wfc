@@ -1,6 +1,6 @@
 #pragma once
 
-class IGridSlot {
+class IGridSuperposition {
   public:
     virtual void set(size_t key, bool val) = 0;
     virtual bool get(size_t key) const = 0;

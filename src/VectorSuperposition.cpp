@@ -1,13 +1,13 @@
-#include "VectorSlot.h"
+#include "VectorSuperposition.h"
 
-VectorSlot::VectorSlot(size_t size) {
+VectorSuperposition::VectorSuperposition(size_t size) {
     this->vector.reserve(size);
     this->ones_count = size;
     for (size_t i = 0; i < size; i++)
         this->vector.push_back(true);
 }
 
-void VectorSlot::set(size_t pos, bool val) {
+void VectorSuperposition::set(size_t pos, bool val) {
     bool current_val = vector[pos];
     if (!current_val && val) {
         this->ones_count++;
@@ -18,18 +18,18 @@ void VectorSlot::set(size_t pos, bool val) {
     vector[pos] = val;
 }
 
-bool VectorSlot::get(size_t pos) const {
+bool VectorSuperposition::get(size_t pos) const {
     return vector[pos];
 }
 
-bool VectorSlot::hasNone() {
+bool VectorSuperposition::hasNone() {
     return ones_count == 0;
 }
 
-bool VectorSlot::hasOne() {
+bool VectorSuperposition::hasOne() {
     return ones_count == 1;
 }
 
-size_t VectorSlot::getOnesCount() {
+size_t VectorSuperposition::getOnesCount() {
     return ones_count;
 }

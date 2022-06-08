@@ -1,9 +1,9 @@
 #pragma once
 
-class IGridSlot;
+class IGridSuperposition;
 
 class INeighborMap {
   public:
-    virtual bool constrainNeighbor(IGridSlot& neighbor_slot) = 0;
-    virtual void update(const IGridSlot& source_slot) = 0;
+    virtual bool constrainNeighbor(IGridSuperposition& neighbor_slot) = 0;
+    virtual void update(const IGridSuperposition& source_slot) = 0;
 };

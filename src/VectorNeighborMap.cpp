@@ -1,5 +1,5 @@
 #include "VectorNeighborMap.h"
-#include "IGridSlot.h"
+#include "IGridSuperposition.h"
 
 VectorNeighborMap::VectorNeighborMap(std::map<size_t, std::vector<bool>> adj, size_t slot_size) {
     this->aggregate_vector.reserve(slot_size);
@@ -8,7 +8,7 @@ VectorNeighborMap::VectorNeighborMap(std::map<size_t, std::vector<bool>> adj, si
     this->aggregate();
 }
 
-bool VectorNeighborMap::constrainNeighbor(IGridSlot& neighbor_grid) {
+bool VectorNeighborMap::constrainNeighbor(IGridSuperposition& neighbor_grid) {
     //lazy evaluation
     if (!is_aggregated) {
         aggregate();
@@ -21,7 +21,7 @@ bool VectorNeighborMap::constrainNeighbor(IGridSlot& neighbor_grid) {
     return neighbor_grid.hasNone(); //return if, at the end, made a contradiction.
 }
 
-void VectorNeighborMap::update(const IGridSlot& source_slot) {
+void VectorNeighborMap::update(const IGridSuperposition& source_slot) {
     for (size_t i = 0; i < slot_size; i++) {
         if (!source_slot.get(i)) { //no longer in slot
             adjacencies.erase(i);

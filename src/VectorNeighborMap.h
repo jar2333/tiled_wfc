@@ -5,7 +5,7 @@
 #include <map>
 
 //an aggregate, should contain some mapping from 
-//IGridSlot pos (size_t) to a bool vector (hence namesake)
+//IGridSuperposition pos (size_t) to a bool vector (hence namesake)
 class VectorNeighborMap : public INeighborMap {
 
     size_t slot_size;
@@ -16,8 +16,8 @@ class VectorNeighborMap : public INeighborMap {
 
     public:
         VectorNeighborMap(std::map<size_t, std::vector<bool>> adj, size_t slot_size);
-        bool constrainNeighbor(IGridSlot& neighbor_slot) override;
-        void update(const IGridSlot& source_slot) override;
+        bool constrainNeighbor(IGridSuperposition& neighbor_slot) override;
+        void update(const IGridSuperposition& source_slot) override;
 
     private:
         void aggregate();
