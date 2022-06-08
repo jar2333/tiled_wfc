@@ -18,7 +18,7 @@ void VectorSlot::set(size_t pos, bool val) {
     vector[pos] = val;
 }
 
-bool VectorSlot::get(size_t pos) {
+bool VectorSlot::get(size_t pos) const {
     return vector[pos];
 }
 
