@@ -1,10 +1,10 @@
 #include "VectorNeighborMap.h"
 #include "IGridSuperposition.h"
 
-VectorNeighborMap::VectorNeighborMap(std::map<size_t, std::vector<bool>> adj, size_t slot_size) {
-    this->aggregate_vector.reserve(slot_size);
+VectorNeighborMap::VectorNeighborMap(std::map<size_t, std::vector<bool>> adj, size_t superposition_size) {
+    this->aggregate_vector.reserve(superposition_size);
     this->adjacencies = adj;
-    this->slot_size = slot_size;
+    this->superposition_size = superposition_size;
     this->aggregate();
 }
 
@@ -13,7 +13,7 @@ bool VectorNeighborMap::constrainNeighbor(IGridSuperposition& neighbor_grid) {
     if (!is_aggregated) {
         aggregate();
     }
-    for (size_t i = 0; i < slot_size; i++) {
+    for (size_t i = 0; i < superposition_size; i++) {
         if (!get(i) && neighbor_grid.get(i))
             neighbor_grid.set(i, false);
     }
@@ -21,9 +21,9 @@ bool VectorNeighborMap::constrainNeighbor(IGridSuperposition& neighbor_grid) {
     return neighbor_grid.hasNone(); //return if, at the end, made a contradiction.
 }
 
-void VectorNeighborMap::update(const IGridSuperposition& source_slot) {
-    for (size_t i = 0; i < slot_size; i++) {
-        if (!source_slot.get(i)) { //no longer in slot
+void VectorNeighborMap::update(const IGridSuperposition& source_superposition) {
+    for (size_t i = 0; i < superposition_size; i++) {
+        if (!source_superposition.get(i)) { //no longer in superposition
             adjacencies.erase(i);
             is_aggregated = false;
         }
@@ -34,7 +34,7 @@ void VectorNeighborMap::update(const IGridSuperposition& source_slot) {
 void VectorNeighborMap::aggregate() {
     for (auto const& x : adjacencies) {
         auto& vec = x.second;
-        for (size_t i = 0; i < slot_size; i++) 
+        for (size_t i = 0; i < superposition_size; i++) 
             aggregate_vector[i] = aggregate_vector[i] || vec[i];
     }
 }

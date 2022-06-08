@@ -4,5 +4,5 @@ class IGridSuperposition;
 
 class ICollapseBehavior {
     public:
-        virtual void collapse(IGridSuperposition& slot) = 0;
+        virtual void collapse(IGridSuperposition& superposition) = 0;
 };
