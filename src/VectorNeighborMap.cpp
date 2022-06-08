@@ -1,28 +1,43 @@
-// #include "VectorNeighborMap.h"
-// #include "IGridSlot.h"
+#include "VectorNeighborMap.h"
+#include "IGridSlot.h"
 
-// VectorNeighborMap::VectorNeighborMap(size_t size) {
-//     this->vector.reserve(size);
-//     for (size_t i = 0; i < size; i++)
-//         this->vector.push_back(true);
-// }
+VectorNeighborMap::VectorNeighborMap(std::map<size_t, std::vector<bool>> adj, size_t slot_size) {
+    this->aggregate_vector.reserve(slot_size);
+    this->slot_size = slot_size;
+    this->aggregate();
+}
 
-// void VectorNeighborMap::set(size_t pos, bool val) {
-//     vector[pos] = val;
-// }
+bool VectorNeighborMap::constrainNeighbor(IGridSlot& neighbor_grid) {
+    //lazy evaluation
+    if (!is_aggregated) {
+        aggregate();
+    }
+    for (size_t i = 0; i < slot_size; i++) {
+        if (!get(i) && neighbor_grid.get(i))
+            neighbor_grid.set(i, false);
+    }
 
-// bool VectorNeighborMap::get(size_t pos) {
-//     return vector[pos];
-// }
+    return neighbor_grid.hasNone(); //return if, at the end, made a contradiction.
+}
 
-// bool VectorNeighborMap::constrainNeighbor(IGridSlot& neighbor_grid) {
+void VectorNeighborMap::update(const IGridSlot& source_slot) {
+    for (size_t i = 0; i < slot_size; i++) {
+        if (!source_slot.get(i)) { //no longer in slot
+            adjacencies.erase(i);
+            is_aggregated = false;
+        }
+    }
+}
 
-//     for (size_t i = 0; i < vector.size(); i++) {
-//         if (!get(i) && neighbor_grid.get(i))
-//             neighbor_grid.set(i, false);
-//     }
+//The bitwise or, set union
+void VectorNeighborMap::aggregate() {
+    for (auto const& x : adjacencies) {
+        auto& vec = x.second;
+        for (size_t i = 0; i < slot_size; i++) 
+            aggregate_vector[i] = aggregate_vector[i] || vec[i];
+    }
+}
 
-//     return neighbor_grid.hasNone(); //return if, at the end, made a contradiction.
-// }
-
-// void VectorNeighborMap::update(IGridSlot& source_slot) {}
+bool VectorNeighborMap::get(size_t i) {
+    return aggregate_vector[i];
+}

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "ITileSet.h"
-
 class IGridSlot;
 
 class INeighborMap {
