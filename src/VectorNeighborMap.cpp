@@ -3,6 +3,7 @@
 
 VectorNeighborMap::VectorNeighborMap(std::map<size_t, std::vector<bool>> adj, size_t slot_size) {
     this->aggregate_vector.reserve(slot_size);
+    this->adjacencies = adj;
     this->slot_size = slot_size;
     this->aggregate();
 }
