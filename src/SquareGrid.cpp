@@ -25,9 +25,17 @@ void SquareGrid::collapse(int key, ICollapseBehavior& cb) {
     cb.collapse(*grid[key]);
 }
 
-// bool SquareGrid::constrain(int current, int neighbor) {
-//     return true;
-// }
+//add exception for current/neighbor not found?
+//
+bool SquareGrid::constrain(int current_key, int neighbor_key) {
+    VectorNeighborMap& map = neighbor_superpositions[current_key][neighbor_key];
+
+    auto current_slot = grid[current_key];
+    map.update(*current_slot);
+
+    auto neighbor_slot = grid[neighbor_key];
+    return map.constrainNeighbor(*neighbor_slot);
+}
 
 
 //Can be made more efficient with a collapsed counter 
