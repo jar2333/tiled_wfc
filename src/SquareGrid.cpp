@@ -3,13 +3,13 @@
 #include "ICollapseBehavior.h"
 
 //modify constructor to create all neighbor lists beforehand?
-SquareGrid::SquareGrid(size_t N, size_t M, size_t slot_size) {
+SquareGrid::SquareGrid(size_t N, size_t M, size_t superposition_size) {
     this->N = N;
     this->M = M;
     size_t size = N*M;
     this->grid.reserve(size);
     for (size_t i = 0; i < size; i++) {
-        auto ptr = std::make_shared<VectorSlot>(size);
+        auto ptr = std::make_shared<VectorSuperposition>(size);
         grid.push_back(ptr);
     }
 }
@@ -30,11 +30,11 @@ void SquareGrid::collapse(int key, ICollapseBehavior& cb) {
 bool SquareGrid::constrain(int current_key, int neighbor_key) {
     VectorNeighborMap& map = neighbor_superpositions[current_key][neighbor_key];
 
-    auto current_slot = grid[current_key];
-    map.update(*current_slot);
+    auto current_superposition = grid[current_key];
+    map.update(*current_superposition);
 
-    auto neighbor_slot = grid[neighbor_key];
-    return map.constrainNeighbor(*neighbor_slot);
+    auto neighbor_superposition = grid[neighbor_key];
+    return map.constrainNeighbor(*neighbor_superposition);
 }
 
 
@@ -78,7 +78,7 @@ std::vector<int> SquareGrid::getNeighbors(int key) {
     return neighbor_keys;
 }
 
-std::shared_ptr<IGridSlot> SquareGrid::getValue(int key) {
+std::shared_ptr<IGridSuperposition> SquareGrid::getValue(int key) {
     return grid[key];
 }
 
