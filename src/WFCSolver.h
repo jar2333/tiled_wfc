@@ -1,18 +1,18 @@
 #pragma once
 
-#include "IWFCHeuristic.h"
-#include "IWFCGrid.h"
+#include "interfaces/IHeuristic.h"
+#include "interfaces/IGrid.h"
 
 
 class WFCSolver {
 
-    IWFCGrid& grid;
-    IWFCHeuristic& heuristic;
+    IGrid& grid;
+    IHeuristic& heuristic;
 
     public:
-        WFCSolver(IWFCGrid& grid, IWFCHeuristic& heuristic) : grid(grid), heuristic(heuristic) {}
+        WFCSolver(IGrid& grid, IHeuristic& heuristic) : grid(grid), heuristic(heuristic) {}
 
-        virtual IWFCGrid& run() = 0;
+        virtual IGrid& run() = 0;
 
     protected:
         virtual void iterate() = 0;
