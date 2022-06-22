@@ -4,11 +4,17 @@
 
 #include <memory>
 
-class IGridSuperposition;
+class ISuperposition;
 class ICollapseBehavior;
 class IHeuristic;
 
 class IGridIterator {
+    public:
+        virtual SuperpositionKeyT getNext() = 0;
+        virtual bool hasNext() = 0;
+};
+
+class IGridNeighborIterator {
     public:
         virtual SuperpositionKeyT getNext() = 0;
         virtual bool hasNext() = 0;
@@ -22,5 +28,7 @@ class IGrid {
         virtual bool isCollapsed() = 0;
         virtual bool isContradiction() = 0;
 
+        virtual std::unique_ptr<ISuperposition> getValue(SuperpositionKeyT key) = 0;
         virtual std::unique_ptr<IGridIterator> getIterator() = 0;
+        virtual std::unique_ptr<IGridNeighborIterator> getNeighborIterator() = 0;
 };
