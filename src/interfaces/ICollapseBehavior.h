@@ -1,8 +1,8 @@
 #pragma once 
 
-class IGridSuperposition;
+class ISuperposition;
 
 class ICollapseBehavior {
     public:
-        virtual void collapse(IGridSuperposition& superposition) = 0;
+        virtual void collapse(ISuperposition& superposition) = 0;
 };
