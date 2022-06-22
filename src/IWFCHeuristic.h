@@ -1,8 +1,10 @@
 #pragma once 
 
+#include "Key.h"
+
 class IWFCGrid;
 
 class IWFCHeuristic {
     public:
-        virtual int getNext(IWFCGrid& grid) = 0;
+        virtual SuperpositionKeyT getNext(IWFCGrid& grid) = 0;
 };
