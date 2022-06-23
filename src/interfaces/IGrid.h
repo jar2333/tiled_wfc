@@ -29,6 +29,7 @@ class IGrid {
         virtual bool isContradiction() = 0;
 
         virtual std::shared_ptr<ISuperposition> getValue(SuperpositionKeyT key) = 0;
+        
         virtual std::unique_ptr<IGridIterator> getIterator() = 0;
         virtual std::unique_ptr<IGridNeighborIterator> getNeighborIterator() = 0;
 };
