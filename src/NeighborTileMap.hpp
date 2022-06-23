@@ -1,8 +1,8 @@
 #pragma once
 
-#include "DiGraph.h"
-#include "interfaces/Key.h"
-#include "interfaces/ISuperposition.h"
+#include "DiGraph.hpp"
+#include "interfaces/Key.hpp"
+#include "interfaces/ISuperposition.hpp"
 
 #include <unordered_set>
 

@@ -1,4 +1,4 @@
-#include "interfaces/ISuperposition.h"
+#include "interfaces/ISuperposition.hpp"
 
 #include <unordered_map>
 

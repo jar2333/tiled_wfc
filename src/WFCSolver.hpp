@@ -1,7 +1,7 @@
 #pragma once
 
-#include "interfaces/IHeuristic.h"
-#include "interfaces/IGrid.h"
+#include "interfaces/IHeuristic.hpp"
+#include "interfaces/IGrid.hpp"
 
 
 class WFCSolver {

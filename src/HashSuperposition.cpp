@@ -1,4 +1,4 @@
-#include "HashSuperposition.h"
+#include "HashSuperposition.hpp"
 
 void HashSuperposition::remove(TileKeyT key) {
     double weight = tiles.at(key);

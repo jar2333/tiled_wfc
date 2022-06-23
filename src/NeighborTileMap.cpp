@@ -1,4 +1,4 @@
-#include "NeighborTileMap.h"
+#include "NeighborTileMap.hpp"
 
 //Sets the tiles in the neighbor superposition to be valid or invalid based on this map
 //returns a bool indicating if this caused the neighbor superposition to create a contradiction
