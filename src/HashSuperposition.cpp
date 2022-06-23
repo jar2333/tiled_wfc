@@ -35,3 +35,14 @@ void HashSuperposition::normalizeWeights(double removed_weight) {
         pair.second /= unnormalized_total_weight;
     }
 }
+
+HashSuperposition::HashSuperpositionIterator::HashSuperpositionIterator(std::unordered_map<TileKeyT, double>& tiles) : it(tiles.begin()), end(tiles.end()) {}
+
+TileKeyT HashSuperposition::HashSuperpositionIterator::getNext() {
+    auto next = *(it++);
+    return next.first;
+}
+
+bool HashSuperposition::HashSuperpositionIterator::hasNext() {
+    return it != end;
+}

@@ -28,19 +28,11 @@ class HashSuperposition : public ISuperposition {
                 std::unordered_map<TileKeyT, double>::iterator it;
                 std::unordered_map<TileKeyT, double>::iterator end;
             public:
-                HashSuperpositionIterator(std::unordered_map<TileKeyT, double>& tiles) {
-                    it = tiles.begin();
-                    end = tiles.end();
-                }
+                HashSuperpositionIterator(std::unordered_map<TileKeyT, double>& tiles);
 
-                TileKeyT getNext() {
-                    auto next = *(it++);
-                    return next.first;
-                }
+                TileKeyT getNext();
 
-                bool hasNext() {
-                    return it != end;
-                }
+                bool hasNext();
         };
 
 };
