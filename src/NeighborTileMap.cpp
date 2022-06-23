@@ -7,7 +7,8 @@ bool NeighborTileMap::constrainNeighbor(ISuperposition& neighbor) {
     auto it = neighbor.getIterator();
     while (it->hasNext()) {
         TileKeyT key = it->getNext();
-        neighbor.set(key, aggregate_valid_neighbor_tiles.count(key));
+        if (!aggregate_valid_neighbor_tiles.count(key))
+            neighbor.remove(key);
     }
 
     return neighbor.hasNone();

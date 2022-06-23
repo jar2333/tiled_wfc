@@ -4,8 +4,6 @@
 
 class HashSuperposition : public ISuperposition {
     private:
-        std::unordered_map<TileKeyT, double> tiles;
-        size_t ones_count;
 
         class HashSuperpositionIterator : public ISuperpositionIterator {
             private:
@@ -27,13 +25,16 @@ class HashSuperposition : public ISuperposition {
                 }
         };
 
+        std::unordered_map<TileKeyT, double> tiles;
+        size_t ones_count;
+
         void normalizeWeights(double removed_weight);
 
     public:
         HashSuperposition(std::unordered_map<TileKeyT, double> tiles) : tiles(tiles), ones_count(tiles.size()) {}
 
-        void set(TileKeyT key, bool val) override;
-        bool get(TileKeyT key) const override;
+        void remove(TileKeyT key) override;
+        bool contains(TileKeyT key) const override;
         double getWeight(TileKeyT key) const override;
         bool hasNone() override;
         bool hasOne() override;

@@ -12,8 +12,8 @@ class ISuperpositionIterator {
 //All superpositions are weighted, weights add up to 1!
 class ISuperposition {
   public:
-    virtual void set(TileKeyT key, bool val) = 0;
-    virtual bool get(TileKeyT key) const = 0;
+    virtual void remove(TileKeyT key) = 0;
+    virtual bool contains(TileKeyT key) const = 0;
     virtual double getWeight(TileKeyT key) const = 0;
     virtual bool hasNone() = 0;
     virtual bool hasOne() = 0;

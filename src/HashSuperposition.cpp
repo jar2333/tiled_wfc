@@ -1,15 +1,13 @@
 #include "HashSuperposition.h"
 
-void HashSuperposition::set(TileKeyT key, bool val) {
-    if (!val) {
-        double weight = tiles.at(key);
-        tiles.erase(key);
-        ones_count--;
-        normalizeWeights(weight);
-    }
+void HashSuperposition::remove(TileKeyT key) {
+    double weight = tiles.at(key);
+    tiles.erase(key);
+    ones_count--;
+    normalizeWeights(weight); //perhaps use an interator parameter thing to only normalize at the end
 }
 
-bool HashSuperposition::get(TileKeyT key) const {
+bool HashSuperposition::contains(TileKeyT key) const {
     return tiles.count(key);
 }
 double HashSuperposition::getWeight(TileKeyT key) const {
